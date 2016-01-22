@@ -4,8 +4,9 @@ namespace HapiClient\Http;
 use HapiClient\Hal\Resource;
 
 final class Follow extends AbstractRequest {
+
 	private $rel;
-	
+
 	/**
 	 * @param $rel			Rel			The relation type.
 	 * @param $method		string		GET, POST, PUT, PATCH or DELETE
@@ -17,7 +18,7 @@ final class Follow extends AbstractRequest {
 		parent::__construct($method, $urlVariables, $messageBody, $headers);
 		$this->rel = $rel;
 	}
-	
+
 	/**
 	 * Looks for a unique Link referenced by the set
 	 * relation type (Rel) and returns its href property.
@@ -30,7 +31,7 @@ final class Follow extends AbstractRequest {
 	public function getUrl(Resource $resource) {
 		return $resource->getLink($this->rel)->getHref();
 	}
-	
+
 	/**
 	 * @return	Rel		The relation type.
 	 */
@@ -38,5 +39,3 @@ final class Follow extends AbstractRequest {
 		return $this->rel;
 	}
 }
-
-?>

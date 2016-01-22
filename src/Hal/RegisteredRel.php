@@ -1,4 +1,5 @@
 <?php
+
 namespace HapiClient\Hal;
 
 /**
@@ -7,8 +8,6 @@ namespace HapiClient\Hal;
  * Last updated: 2015-01-21
  */
 final class RegisteredRel {
-	private function __construct() { }
-
 	/**
 	 * Not part of the IANA Registry but a reserved
 	 * relation type in the HAL Specification for
@@ -34,7 +33,7 @@ final class RegisteredRel {
 	 * Relation Name: about
 	 * Description: Refers to a resource that is the subject of the link's context.
 	 * Reference: [RFC6903], section 2
-	 * Notes: 
+	 * Notes:
 	 */
 	const ABOUT = 'about';
 
@@ -42,7 +41,7 @@ final class RegisteredRel {
 	 * Relation Name: alternate
 	 * Description: Refers to a substitute for this context
 	 * Reference: [http://www.w3.org/TR/html5/links.html#link-type-alternate]
-	 * Notes: 
+	 * Notes:
 	 */
 	const ALTERNATE = 'alternate';
 
@@ -50,7 +49,7 @@ final class RegisteredRel {
 	 * Relation Name: appendix
 	 * Description: Refers to an appendix.
 	 * Reference: [http://www.w3.org/TR/1999/REC-html401-19991224]
-	 * Notes: 
+	 * Notes:
 	 */
 	const APPENDIX = 'appendix';
 
@@ -58,7 +57,7 @@ final class RegisteredRel {
 	 * Relation Name: archives
 	 * Description: Refers to a collection of records, documents, or other materials of historical interest.
 	 * Reference: [http://www.w3.org/TR/2011/WD-html5-20110113/links.html#rel-archives]
-	 * Notes: 
+	 * Notes:
 	 */
 	const ARCHIVES = 'archives';
 
@@ -66,7 +65,7 @@ final class RegisteredRel {
 	 * Relation Name: author
 	 * Description: Refers to the context's author.
 	 * Reference: [http://www.w3.org/TR/html5/links.html#link-type-author]
-	 * Notes: 
+	 * Notes:
 	 */
 	const AUTHOR = 'author';
 
@@ -74,7 +73,7 @@ final class RegisteredRel {
 	 * Relation Name: bookmark
 	 * Description: Gives a permanent link to use for bookmarking purposes.
 	 * Reference: [http://www.w3.org/TR/html5/links.html#link-type-bookmark]
-	 * Notes: 
+	 * Notes:
 	 */
 	const BOOKMARK = 'bookmark';
 
@@ -82,7 +81,7 @@ final class RegisteredRel {
 	 * Relation Name: canonical
 	 * Description: Designates the preferred version of a resource (the IRI and its contents).
 	 * Reference: [RFC6596]
-	 * Notes: 
+	 * Notes:
 	 */
 	const CANONICAL = 'canonical';
 
@@ -90,7 +89,7 @@ final class RegisteredRel {
 	 * Relation Name: chapter
 	 * Description: Refers to a chapter in a collection of resources.
 	 * Reference: [http://www.w3.org/TR/1999/REC-html401-19991224]
-	 * Notes: 
+	 * Notes:
 	 */
 	const CHAPTER = 'chapter';
 
@@ -98,7 +97,7 @@ final class RegisteredRel {
 	 * Relation Name: collection
 	 * Description: The target IRI points to a resource which represents the collection resource for the context IRI.
 	 * Reference: [RFC6573]
-	 * Notes: 
+	 * Notes:
 	 */
 	const COLLECTION = 'collection';
 
@@ -106,7 +105,7 @@ final class RegisteredRel {
 	 * Relation Name: contents
 	 * Description: Refers to a table of contents.
 	 * Reference: [http://www.w3.org/TR/1999/REC-html401-19991224]
-	 * Notes: 
+	 * Notes:
 	 */
 	const CONTENTS = 'contents';
 
@@ -114,7 +113,7 @@ final class RegisteredRel {
 	 * Relation Name: copyright
 	 * Description: Refers to a copyright statement that applies to the link's context.
 	 * Reference: [http://www.w3.org/TR/1999/REC-html401-19991224]
-	 * Notes: 
+	 * Notes:
 	 */
 	const COPYRIGHT = 'copyright';
 
@@ -122,7 +121,7 @@ final class RegisteredRel {
 	 * Relation Name: create-form
 	 * Description: The target IRI points to a resource where a submission form can be obtained.
 	 * Reference: [RFC6861]
-	 * Notes: 
+	 * Notes:
 	 */
 	const CREATEFORM = 'create-form';
 
@@ -130,7 +129,7 @@ final class RegisteredRel {
 	 * Relation Name: current
 	 * Description: Refers to a resource containing the most recent item(s) in a collection of resources.
 	 * Reference: [RFC5005]
-	 * Notes: 
+	 * Notes:
 	 */
 	const CURRENT = 'current';
 
@@ -138,7 +137,7 @@ final class RegisteredRel {
 	 * Relation Name: derivedfrom
 	 * Description: The target IRI points to a resource from which this material was derived.
 	 * Reference: [draft-hoffman-xml2rfc]
-	 * Notes: 
+	 * Notes:
 	 */
 	const DERIVEDFROM = 'derivedfrom';
 
@@ -146,7 +145,7 @@ final class RegisteredRel {
 	 * Relation Name: describedby
 	 * Description: Refers to a resource providing information about the link's context.
 	 * Reference: [http://www.w3.org/TR/powder-dr/#assoc-linking]
-	 * Notes: 
+	 * Notes:
 	 */
 	const DESCRIBEDBY = 'describedby';
 
@@ -162,7 +161,7 @@ final class RegisteredRel {
 	 * Relation Name: disclosure
 	 * Description: Refers to a list of patent disclosures made with respect to material for which 'disclosure' relation is specified.
 	 * Reference: [RFC6579]
-	 * Notes: 
+	 * Notes:
 	 */
 	const DISCLOSURE = 'disclosure';
 
@@ -178,7 +177,7 @@ final class RegisteredRel {
 	 * Relation Name: edit
 	 * Description: Refers to a resource that can be used to edit the link's context.
 	 * Reference: [RFC5023]
-	 * Notes: 
+	 * Notes:
 	 */
 	const EDIT = 'edit';
 
@@ -186,7 +185,7 @@ final class RegisteredRel {
 	 * Relation Name: edit-form
 	 * Description: The target IRI points to a resource where a submission form for editing associated resource can be obtained.
 	 * Reference: [RFC6861]
-	 * Notes: 
+	 * Notes:
 	 */
 	const EDITFORM = 'edit-form';
 
@@ -194,7 +193,7 @@ final class RegisteredRel {
 	 * Relation Name: edit-media
 	 * Description: Refers to a resource that can be used to edit media associated with the link's context.
 	 * Reference: [RFC5023]
-	 * Notes: 
+	 * Notes:
 	 */
 	const EDITMEDIA = 'edit-media';
 
@@ -202,7 +201,7 @@ final class RegisteredRel {
 	 * Relation Name: enclosure
 	 * Description: Identifies a related resource that is potentially large and might require special handling.
 	 * Reference: [RFC4287]
-	 * Notes: 
+	 * Notes:
 	 */
 	const ENCLOSURE = 'enclosure';
 
@@ -218,7 +217,7 @@ final class RegisteredRel {
 	 * Relation Name: glossary
 	 * Description: Refers to a glossary of terms.
 	 * Reference: [http://www.w3.org/TR/1999/REC-html401-19991224]
-	 * Notes: 
+	 * Notes:
 	 */
 	const GLOSSARY = 'glossary';
 
@@ -226,7 +225,7 @@ final class RegisteredRel {
 	 * Relation Name: help
 	 * Description: Refers to context-sensitive help.
 	 * Reference: [http://www.w3.org/TR/html5/links.html#link-type-help]
-	 * Notes: 
+	 * Notes:
 	 */
 	const HELP = 'help';
 
@@ -250,7 +249,7 @@ final class RegisteredRel {
 	 * Relation Name: icon
 	 * Description: Refers to an icon representing the link's context.
 	 * Reference: [http://www.w3.org/TR/html5/links.html#link-type-icon]
-	 * Notes: 
+	 * Notes:
 	 */
 	const ICON = 'icon';
 
@@ -258,7 +257,7 @@ final class RegisteredRel {
 	 * Relation Name: index
 	 * Description: Refers to an index.
 	 * Reference: [http://www.w3.org/TR/1999/REC-html401-19991224]
-	 * Notes: 
+	 * Notes:
 	 */
 	const INDEX = 'index';
 
@@ -266,7 +265,7 @@ final class RegisteredRel {
 	 * Relation Name: item
 	 * Description: The target IRI points to a resource that is a member of the collection represented by the context IRI.
 	 * Reference: [RFC6573]
-	 * Notes: 
+	 * Notes:
 	 */
 	const ITEM = 'item';
 
@@ -282,7 +281,7 @@ final class RegisteredRel {
 	 * Relation Name: latest-version
 	 * Description: Points to a resource containing the latest (e.g., current) version of the context.
 	 * Reference: [RFC5829]
-	 * Notes: 
+	 * Notes:
 	 */
 	const LATESTVERSION = 'latest-version';
 
@@ -298,7 +297,7 @@ final class RegisteredRel {
 	 * Relation Name: lrdd
 	 * Description: Refers to further information about the link's context, expressed as a LRDD (""Link-based Resource Descriptor Document"") resource.  See [RFC6415] for information about processing this relation type in host-meta documents. When used elsewhere, it refers to additional links and other metadata. Multiple instances indicate additional LRDD resources. LRDD resources MUST have an ""application/xrd+xml"" representation, and MAY have others.
 	 * Reference: [RFC6415]
-	 * Notes: 
+	 * Notes:
 	 */
 	const LRDD = 'lrdd';
 
@@ -314,7 +313,7 @@ final class RegisteredRel {
 	 * Relation Name: monitor
 	 * Description: Refers to a resource that can be used to monitor changes in an HTTP resource.
 	 * Reference: [RFC5989]
-	 * Notes: 
+	 * Notes:
 	 */
 	const MONITOR = 'monitor';
 
@@ -322,7 +321,7 @@ final class RegisteredRel {
 	 * Relation Name: monitor-group
 	 * Description: Refers to a resource that can be used to monitor changes in a specified group of HTTP resources.
 	 * Reference: [RFC5989]
-	 * Notes: 
+	 * Notes:
 	 */
 	const MONITORGROUP = 'monitor-group';
 
@@ -330,7 +329,7 @@ final class RegisteredRel {
 	 * Relation Name: next
 	 * Description: Indicates that the link's context is a part of a series, and that the next in the series is the link target.
 	 * Reference: [http://www.w3.org/TR/html5/links.html#link-type-next]
-	 * Notes: 
+	 * Notes:
 	 */
 	const NEXT = 'next';
 
@@ -338,7 +337,7 @@ final class RegisteredRel {
 	 * Relation Name: next-archive
 	 * Description: Refers to the immediately following archive resource.
 	 * Reference: [RFC5005]
-	 * Notes: 
+	 * Notes:
 	 */
 	const NEXTARCHIVE = 'next-archive';
 
@@ -346,7 +345,7 @@ final class RegisteredRel {
 	 * Relation Name: nofollow
 	 * Description: Indicates that the context’s original author or publisher does not endorse the link target.
 	 * Reference: [http://www.w3.org/TR/html5/links.html#link-type-nofollow]
-	 * Notes: 
+	 * Notes:
 	 */
 	const NOFOLLOW = 'nofollow';
 
@@ -354,7 +353,7 @@ final class RegisteredRel {
 	 * Relation Name: noreferrer
 	 * Description: Indicates that no referrer information is to be leaked when following the link.
 	 * Reference: [http://www.w3.org/TR/html5/links.html#link-type-noreferrer]
-	 * Notes: 
+	 * Notes:
 	 */
 	const NOREFERRER = 'noreferrer';
 
@@ -378,7 +377,7 @@ final class RegisteredRel {
 	 * Relation Name: predecessor-version
 	 * Description: Points to a resource containing the predecessor version in the version history.
 	 * Reference: [RFC5829]
-	 * Notes: 
+	 * Notes:
 	 */
 	const PREDECESSORVERSION = 'predecessor-version';
 
@@ -386,7 +385,7 @@ final class RegisteredRel {
 	 * Relation Name: prefetch
 	 * Description: Indicates that the link target should be preemptively cached.
 	 * Reference: [http://www.w3.org/TR/html5/links.html#link-type-prefetch]
-	 * Notes: 
+	 * Notes:
 	 */
 	const PREFETCH = 'prefetch';
 
@@ -394,7 +393,7 @@ final class RegisteredRel {
 	 * Relation Name: prev
 	 * Description: Indicates that the link's context is a part of a series, and that the previous in the series is the link target.
 	 * Reference: [http://www.w3.org/TR/html5/links.html#link-type-prev]
-	 * Notes: 
+	 * Notes:
 	 */
 	const PREV = 'prev';
 
@@ -402,7 +401,7 @@ final class RegisteredRel {
 	 * Relation Name: preview
 	 * Description: Refers to a resource that provides a preview of the link's context.
 	 * Reference: [RFC6903], section 3
-	 * Notes: 
+	 * Notes:
 	 */
 	const PREVIEW = 'preview';
 
@@ -410,7 +409,7 @@ final class RegisteredRel {
 	 * Relation Name: previous
 	 * Description: Refers to the previous resource in an ordered series of resources.  Synonym for ""prev"".
 	 * Reference: [http://www.w3.org/TR/1999/REC-html401-19991224]
-	 * Notes: 
+	 * Notes:
 	 */
 	const PREVIOUS = 'previous';
 
@@ -418,7 +417,7 @@ final class RegisteredRel {
 	 * Relation Name: prev-archive
 	 * Description: Refers to the immediately preceding archive resource.
 	 * Reference: [RFC5005]
-	 * Notes: 
+	 * Notes:
 	 */
 	const PREVARCHIVE = 'prev-archive';
 
@@ -426,19 +425,19 @@ final class RegisteredRel {
 	 * Relation Name: privacy-policy
 	 * Description: Refers to a privacy policy associated with the link's context.
 	 * Reference: [RFC6903], section 4
-	 * Notes: 
+	 * Notes:
 	 */
 	const PRIVACYPOLICY = 'privacy-policy';
 
 	/**
 	 * Relation Name: profile
 	 * Description: Identifying that a resource representation conforms
-	to a certain profile, without affecting the non-profile semantics
-	of the resource representation.
+	 * to a certain profile, without affecting the non-profile semantics
+	 * of the resource representation.
 	 * Reference: [RFC6906]
 	 * Notes: Profile URIs are primarily intended to be used as
-	identifiers, and thus clients SHOULD NOT indiscriminately access
-	profile URIs.
+	 * identifiers, and thus clients SHOULD NOT indiscriminately access
+	 * profile URIs.
 	 */
 	const PROFILE = 'profile';
 
@@ -446,7 +445,7 @@ final class RegisteredRel {
 	 * Relation Name: related
 	 * Description: Identifies a related resource.
 	 * Reference: [RFC4287]
-	 * Notes: 
+	 * Notes:
 	 */
 	const RELATED = 'related';
 
@@ -454,7 +453,7 @@ final class RegisteredRel {
 	 * Relation Name: replies
 	 * Description: Identifies a resource that is a reply to the context of the link.
 	 * Reference: [RFC4685]
-	 * Notes: 
+	 * Notes:
 	 */
 	const REPLIES = 'replies';
 
@@ -462,7 +461,7 @@ final class RegisteredRel {
 	 * Relation Name: search
 	 * Description: Refers to a resource that can be used to search through the link's context and related resources.
 	 * Reference: [http://www.opensearch.org/Specifications/OpenSearch/1.1]
-	 * Notes: 
+	 * Notes:
 	 */
 	const SEARCH = 'search';
 
@@ -470,7 +469,7 @@ final class RegisteredRel {
 	 * Relation Name: section
 	 * Description: Refers to a section in a collection of resources.
 	 * Reference: [http://www.w3.org/TR/1999/REC-html401-19991224]
-	 * Notes: 
+	 * Notes:
 	 */
 	const SECTION = 'section';
 
@@ -478,7 +477,7 @@ final class RegisteredRel {
 	 * Relation Name: self
 	 * Description: Conveys an identifier for the link's context.
 	 * Reference: [RFC4287]
-	 * Notes: 
+	 * Notes:
 	 */
 	const SELF = 'self';
 
@@ -494,7 +493,7 @@ final class RegisteredRel {
 	 * Relation Name: start
 	 * Description: Refers to the first resource in a collection of resources.
 	 * Reference: [http://www.w3.org/TR/1999/REC-html401-19991224]
-	 * Notes: 
+	 * Notes:
 	 */
 	const START = 'start';
 
@@ -502,7 +501,7 @@ final class RegisteredRel {
 	 * Relation Name: stylesheet
 	 * Description: Refers to a stylesheet.
 	 * Reference: [http://www.w3.org/TR/html5/links.html#link-type-stylesheet]
-	 * Notes: 
+	 * Notes:
 	 */
 	const STYLESHEET = 'stylesheet';
 
@@ -510,7 +509,7 @@ final class RegisteredRel {
 	 * Relation Name: subsection
 	 * Description: Refers to a resource serving as a subsection in a collection of resources.
 	 * Reference: [http://www.w3.org/TR/1999/REC-html401-19991224]
-	 * Notes: 
+	 * Notes:
 	 */
 	const SUBSECTION = 'subsection';
 
@@ -518,7 +517,7 @@ final class RegisteredRel {
 	 * Relation Name: successor-version
 	 * Description: Points to a resource containing the successor version in the version history.
 	 * Reference: [RFC5829]
-	 * Notes: 
+	 * Notes:
 	 */
 	const SUCCESSORVERSION = 'successor-version';
 
@@ -526,7 +525,7 @@ final class RegisteredRel {
 	 * Relation Name: tag
 	 * Description: Gives a tag (identified by the given address) that applies to the current document.
 	 * Reference: [http://www.w3.org/TR/html5/links.html#link-type-tag]
-	 * Notes: 
+	 * Notes:
 	 */
 	const TAG = 'tag';
 
@@ -534,7 +533,7 @@ final class RegisteredRel {
 	 * Relation Name: terms-of-service
 	 * Description: Refers to the terms of service associated with the link's context.
 	 * Reference: [RFC6903], section 5
-	 * Notes: 
+	 * Notes:
 	 */
 	const TERMSOFSERVICE = 'terms-of-service';
 
@@ -558,7 +557,7 @@ final class RegisteredRel {
 	 * Relation Name: type
 	 * Description: Refers to a resource identifying the abstract semantic type of which the link's context is considered to be an instance.
 	 * Reference: [RFC6903], section 6
-	 * Notes: 
+	 * Notes:
 	 */
 	const TYPE = 'type';
 
@@ -574,7 +573,7 @@ final class RegisteredRel {
 	 * Relation Name: version-history
 	 * Description: Points to a resource containing the version history for the context.
 	 * Reference: [RFC5829]
-	 * Notes: 
+	 * Notes:
 	 */
 	const VERSIONHISTORY = 'version-history';
 
@@ -582,7 +581,7 @@ final class RegisteredRel {
 	 * Relation Name: via
 	 * Description: Identifies a resource that is the source of the information in the link's context.
 	 * Reference: [RFC4287]
-	 * Notes: 
+	 * Notes:
 	 */
 	const VIA = 'via';
 
@@ -590,7 +589,7 @@ final class RegisteredRel {
 	 * Relation Name: working-copy
 	 * Description: Points to a working copy for this resource.
 	 * Reference: [RFC5829]
-	 * Notes: 
+	 * Notes:
 	 */
 	const WORKINGCOPY = 'working-copy';
 
@@ -598,7 +597,7 @@ final class RegisteredRel {
 	 * Relation Name: working-copy-of
 	 * Description: Points to the versioned resource from which this working copy was obtained.
 	 * Reference: [RFC5829]
-	 * Notes: 
+	 * Notes:
 	 */
 	const WORKINGCOPYOF = 'working-copy-of';
 }

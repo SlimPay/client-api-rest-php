@@ -1,4 +1,5 @@
 <?php
+
 namespace HapiClient\Util;
 
 class Misc {
@@ -12,15 +13,15 @@ class Misc {
 	 * @return	the filtered array
 	 */
 	public static function removeEmptyStrings($array) {
-		foreach ($array as $key => $value)
+		foreach ($array as $key => $value){
 			if (is_array($value)) {
 				$array[$key] = self::removeEmptyStrings($value);
-				
+
 				if (empty($array[$key]))
 					unset($array[$key]);
 			} elseif ($value === '')
 				unset($array[$key]);
-		
+		}
 		return $array;
 	}
 }

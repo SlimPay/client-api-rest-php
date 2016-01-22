@@ -1,9 +1,11 @@
 <?php
+
 namespace HapiClient\Http;
 
 final class Request extends AbstractRequest {
+
 	private $url;
-	
+
 	/**
 	 * @param $url			string		The URL
 	 * @param $method		string		GET (default), POST, PUT, PATCH or DELETE
@@ -13,15 +15,15 @@ final class Request extends AbstractRequest {
 	 */
 	public function __construct($url, $method = 'GET', array $urlVariables = null, MessageBody $messageBody = null, array $headers = null) {
 		parent::__construct($method, $urlVariables, $messageBody, $headers);
-		
+
 		// Validate the URL
 		$url = trim($url);
 		if (!$url)
 			throw new \InvalidArgumentException('URL is empty.');
-		
+
 		$this->url = $url;
 	}
-	
+
 	/**
 	 * @return	string	The URL
 	 */
@@ -29,5 +31,3 @@ final class Request extends AbstractRequest {
 		return $this->url;
 	}
 }
-
-?>

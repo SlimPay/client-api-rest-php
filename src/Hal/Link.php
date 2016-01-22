@@ -10,7 +10,7 @@ class Link {
 	private $profile;
 	private $title;
 	private $hreflang;
-	
+
 	/**
 	 * See getters for details about each param.
 	 * @param $href			string
@@ -27,7 +27,7 @@ class Link {
 		$href = trim($href);
 		if (!$href)
 			throw new \InvalidArgumentException('The href property is mandatory.');
-		
+
 		$this->href = $href;
 		$this->templated = $templated;
 		$this->type = $type;
@@ -37,7 +37,7 @@ class Link {
 		$this->title = $title;
 		$this->hreflang = $hreflang;
 	}
-	
+
 	/**
 	 * REQUIRED
 	 * Its value is either a URI [RFC3986] or a URI Template [RFC6570].<br>
@@ -47,7 +47,7 @@ class Link {
 	public function getHref() {
 		return $this->href;
 	}
-	
+
 	/**
 	 * OPTIONAL
 	 * Its value is boolean and SHOULD be true when the Link Object's "href"
@@ -58,7 +58,7 @@ class Link {
 	public function isTemplated() {
 		return (boolean) $this->templated;
 	}
-	
+
 	/**
 	 * OPTIONAL
 	 * Its value is a string used as a hint to indicate the media type
@@ -67,7 +67,7 @@ class Link {
 	public function getType() {
 		return $this->type;
 	}
-	
+
 	/**
 	 * OPTIONAL
 	 * Its presence indicates that the link is to be deprecated (i.e.
@@ -82,7 +82,7 @@ class Link {
 	public function getDeprecation() {
 		return $this->deprecation;
 	}
-	
+
 	/**
 	 * OPTIONAL
 	 * Its value MAY be used as a secondary key for selecting Link Objects
@@ -91,7 +91,7 @@ class Link {
 	public function getName() {
 		return $this->name;
 	}
-	
+
 	/**
 	 * OPTIONAL
 	 * Its value is a string which is a URI that hints about the profile (as
@@ -100,7 +100,7 @@ class Link {
 	public function getProfile() {
 		return $this->profile;
 	}
-	
+
 	/**
 	 * OPTIONAL
 	 * Its value is a string and is intended for labelling the link with a
@@ -109,7 +109,7 @@ class Link {
 	public function getTitle() {
 		return $this->title;
 	}
-	
+
 	/**
 	 * OPTIONAL
 	 * Its value is a string and is intended for indicating the language of
@@ -118,12 +118,12 @@ class Link {
 	public function getHreflang() {
 		return $this->hreflang;
 	}
-	
+
 	/**
 	 * The magic setter is overridden to insure immutability.
 	 */
     final public function __set($name, $value) { }
-	
+
 	/**
 	 * Constructor from a map of properties (json).
 	 * Keys that are not a valid property are ignored.
@@ -133,7 +133,7 @@ class Link {
 	public static function fromJson($json) {
 		if (!$json)
 			$json = [];
-		
+
 		if (!is_array($json)) {
 			if (is_object($json))
 				$json = (array) $json;
@@ -142,7 +142,7 @@ class Link {
 			else
 				throw new \InvalidArgumentException("JSON must be a string, an array or an object ('" . gettype($json) . "' provided).");
 		}
-		
+
 		return new Link(
 			isset($json['href'])		? $json['href']			: null,
 			isset($json['templated'])	? $json['templated']	: null,
@@ -154,10 +154,10 @@ class Link {
 			isset($json['hreflang'])	? $json['hreflang']		: null
 		);
 	}
-	
+
 	public function __toString() {
 		$s = 'Link (href=' . $this->href;
-		
+
 		if ($this->templated)	$s .= ', templated=' . ($this->templated ? 'true' : 'false');
 		if ($this->type)		$s .= ', type=' . $this->type;
 		if ($this->deprecation)	$s .= ', deprecation=' . $this->deprecation;
@@ -165,9 +165,7 @@ class Link {
 		if ($this->profile)		$s .= ', profile=' . $this->profile;
 		if ($this->title)		$s .= ', title=' . $this->title;
 		if ($this->hreflang)	$s .= ', hreflang=' . $this->hreflang;
-		
+
 		return $s . ')';
 	}
 }
-
-?>
