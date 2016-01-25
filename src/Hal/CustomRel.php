@@ -10,7 +10,8 @@ namespace HapiClient\Hal;
  * @see https://tools.ietf.org/html/draft-kelly-json-hal-07#section-8.2
  * @see https://tools.ietf.org/html/rfc5988#section-4
  */
-final class CustomRel {
+final class CustomRel
+{
 
 	/**
 	 * @var string

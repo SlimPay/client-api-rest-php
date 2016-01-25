@@ -7,7 +7,8 @@ namespace HapiClient\Hal;
  * http://www.iana.org/assignments/link-relations/link-relations.xhtml
  * Last updated: 2015-01-21
  */
-final class RegisteredRel {
+final class RegisteredRel
+{
 	/**
 	 * Not part of the IANA Registry but a reserved
 	 * relation type in the HAL Specification for

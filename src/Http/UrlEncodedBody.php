@@ -2,8 +2,8 @@
 
 namespace HapiClient\Http;
 
-class UrlEncodedBody extends MessageBody {
-
+class UrlEncodedBody extends MessageBody
+{
     /**
      * @var mixed
      */
@@ -33,28 +33,32 @@ class UrlEncodedBody extends MessageBody {
      * @return    mixed    A query string or an associative
      *                    array representing a query string.
      */
-    public function getQuery() {
+    public function getQuery()
+    {
         return $this->query;
     }
 
     /**
      * @return    string    The Content-Type header.
      */
-    public function getContentType() {
+    public function getContentType()
+    {
         return 'application/x-www-form-urlencoded';
     }
 
     /**
      * @return    integer    The Content-Length header.
      */
-    public function getContentLength() {
+    public function getContentLength()
+    {
         return strlen($this->getContent());
     }
 
     /**
      * @return    string    The content.
      */
-    public function getContent() {
+    public function getContent()
+    {
         if ($this->content) {
             return $this->content;
         }

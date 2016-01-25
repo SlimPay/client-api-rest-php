@@ -21,7 +21,9 @@ use HapiClient\Exception\EmbeddedResourceNotUniqueException;
  * strings [...] in a case-insensitive fashion."
  * @see https://tools.ietf.org/html/rfc5988#section-4.2
  */
-final class Resource {
+final class Resource
+{
+
 	private $state;
 	private $links;
 	private $embeddedResources;

@@ -1,7 +1,9 @@
 <?php
+
 namespace HapiClient\Hal;
 
-class Link {
+class Link
+{
 	private $href;
 	private $templated;
 	private $type;
