@@ -252,7 +252,7 @@ final class HapiClient {
      */
     private function verify(RequestInterface $httpRequest)
     {
-        $extensions = ['crt', 'pem', 'cer', 'der'];
+        $extensions = array('crt', 'pem', 'cer', 'der');
         $caDir = __DIR__ . '/../CA/';
 
         // Must be https

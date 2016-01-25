@@ -18,8 +18,9 @@ final class Request extends AbstractRequest {
 
 		// Validate the URL
 		$url = trim($url);
-		if (!$url)
+		if (!$url) {
 			throw new \InvalidArgumentException('URL is empty.');
+		}
 
 		$this->url = $url;
 	}
@@ -27,7 +28,8 @@ final class Request extends AbstractRequest {
 	/**
 	 * @return	string	The URL
 	 */
-	public function getUrl() {
+	public function getUrl()
+	{
 		return $this->url;
 	}
 }

@@ -40,6 +40,6 @@ class ExpirableToken
      */
     public function isValidUntil($timeLimit)
     {
-        return !empty($this->value) && $this->expirationTime > $timeLimit;
+        return (!empty($this->value) && $this->expirationTime > $timeLimit);
     }
 }
