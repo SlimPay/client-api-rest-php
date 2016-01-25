@@ -2,10 +2,9 @@
 namespace HapiClient\Http\Auth;
 
 use HapiClient\Http;
-
 use GuzzleHttp\Message\RequestInterface;
 
-interface AuthenticationMethod {
+interface AuthenticationMethodInterface {
 	/**
 	 * This is called right before sending the HTTP request.
 	 * @param $hapiClient	The client used to send the request.
