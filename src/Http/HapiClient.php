@@ -12,8 +12,8 @@ use \GuzzleHttp\Message\RequestInterface;
 use \GuzzleHttp\Stream\Stream;
 use \GuzzleHttp\UriTemplate;
 
-final class HapiClient {
-
+final class HapiClient
+{
     const ENTRY_POINT_URL = '/';
 
     private $apiUrl;
@@ -35,7 +35,7 @@ final class HapiClient {
      */
     public function __construct(
             $apiUrl = null,
-            $entryPointUrl = sefl::ENTRY_POINT_URL,
+            $entryPointUrl = self::ENTRY_POINT_URL,
             $profile = null,
             AuthenticationMethodInterface $authenticationMethod = null)
     {
