@@ -4,8 +4,9 @@ namespace HapiClient\tests;
 use HapiClient\Http;
 use HapiClient\Http\Auth;
 use HapiClient\Exception;
+use PHPUnit\Framework\TestCase;
 
-class WrongCredentialsTest extends \PHPUnit_Framework_TestCase
+class WrongCredentialsTest extends TestCase
 {
     const APIURL = 'https://api.preprod.slimpay.com';
     const PROFILEURL = 'https://api.slimpay.net/alps/v1';

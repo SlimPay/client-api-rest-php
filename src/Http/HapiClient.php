@@ -1,6 +1,7 @@
 <?php
 namespace HapiClient\Http;
 
+use GuzzleHttp\UriTemplate\UriTemplate;
 use HapiClient\Http\Auth\AuthenticationMethod;
 use HapiClient\Hal\ResourceInterface;
 use HapiClient\Hal\Resource;
@@ -8,8 +9,6 @@ use HapiClient\Hal\RegisteredRel;
 use HapiClient\Exception;
 use HapiClient\Util\Misc;
 use \GuzzleHttp\Client;
-use \GuzzleHttp\ClientInterface;
-use \GuzzleHttp\UriTemplate;
 
 final class HapiClient implements HapiClientInterface
 {
@@ -17,11 +16,11 @@ final class HapiClient implements HapiClientInterface
     private $entryPointUrl;
     private $profile;
     private $authenticationMethod;
-    
+
     private $client;
-    
+
     private $entryPointResource;
-    
+
     /**
      * @param $apiUrl			string	The URL pointing to the API server.
      * @param $entryPointUrl	string	The URL to the entry point Resource.
@@ -42,10 +41,10 @@ final class HapiClient implements HapiClientInterface
         $this->entryPointUrl = trim($entryPointUrl);
         $this->profile = trim($profile);
         $this->authenticationMethod = $authenticationMethod;
-        
+
         if ($this->apiUrl) {
             $baseUrl = rtrim($this->apiUrl, '/') . '/';
-            
+
             if (Misc::isGuzzle6()) {
                 $this->client = new Client(['base_uri' => $baseUrl]);
             } else {
@@ -55,7 +54,7 @@ final class HapiClient implements HapiClientInterface
             $this->client = new Client();
         }
     }
-    
+
     /**
      * {@inheritDoc}
      */
@@ -63,7 +62,7 @@ final class HapiClient implements HapiClientInterface
     {
         return $this->apiUrl;
     }
-    
+
     /**
      * {@inheritDoc}
      */
@@ -71,7 +70,7 @@ final class HapiClient implements HapiClientInterface
     {
         return $this->entryPointUrl;
     }
-    
+
     /**
      * {@inheritDoc}
      */
@@ -79,7 +78,7 @@ final class HapiClient implements HapiClientInterface
     {
         return $this->profile;
     }
-    
+
     /**
      * {@inheritDoc}
      */
@@ -87,7 +86,7 @@ final class HapiClient implements HapiClientInterface
     {
         return $this->authenticationMethod;
     }
-    
+
     /**
      * {@inheritDoc}
      */
@@ -95,14 +94,14 @@ final class HapiClient implements HapiClientInterface
     {
         return $this->client;
     }
-    
+
     /**
      * The magic setter is overridden to insure immutability.
      */
     final public function __set($name, $value)
     {
     }
-    
+
     /**
      * {@inheritDoc}
      */
@@ -112,34 +111,34 @@ final class HapiClient implements HapiClientInterface
         $options = [];
         if (Misc::isGuzzle6()) {
             $options['exceptions'] = false;
-            
+
             if (($verify = Misc::verify($request->getUrl(), __DIR__ . '/../CA/')) !== null) {
                 $options['verify'] = $verify;
             }
         }
-        
+
         // Create the HTTP request
         $httpRequest = $this->createHttpRequest($request);
-        
+
         // Send the request
         $httpResponse = $this->client->send($httpRequest, $options);
-        
+
         // If Unauthorized, maybe the authorization just timed out.
         // Try it again to be sure.
         if ($httpResponse->getStatusCode() == 401 && $this->authenticationMethod != null) {
             // Create the HTTP request (and Authorize again)
             $httpRequest = $this->createHttpRequest($request);
-            
+
             // Execute again
             $httpResponse = $this->client->send($httpRequest, $options);
         }
-        
+
         // Check the status code (must be 2xx)
         $statusCode = $httpResponse->getStatusCode();
         if ($statusCode >= 200 && $statusCode < 300) {
             return Resource::fromJson((string) $httpResponse->getBody());
         }
-        
+
         // Exception depending on status code for 3xx, 4xx and 5xx
         if ($statusCode >= 300 && $statusCode < 400) {
             throw new Exception\HttpRedirectionException($httpRequest, $httpResponse);
@@ -151,7 +150,7 @@ final class HapiClient implements HapiClientInterface
             throw new Exception\HttpException($httpRequest, $httpResponse);
         }
     }
-    
+
     /**
      * {@inheritDoc}
      */
@@ -160,11 +159,11 @@ final class HapiClient implements HapiClientInterface
         if (!$resource) {
             $resource = $this->getEntryPointResource();
         }
-        
+
         if (!is_array($follow)) {
             $follow = array($follow);
         }
-        
+
         foreach ($follow as $hop) {
             $resource = $this->sendRequest(new Request(
                 $hop->getUrl($resource),
@@ -174,7 +173,7 @@ final class HapiClient implements HapiClientInterface
                 $hop->getHeaders()
             ));
         }
-        
+
         return $resource;
     }
 
@@ -186,10 +185,10 @@ final class HapiClient implements HapiClientInterface
         if ($this->entryPointResource) {
             return $this->entryPointResource;
         }
-        
+
         return $this->entryPointResource = $this->sendRequest(new Request($this->entryPointUrl));
     }
-    
+
     /**
      * {@inheritDoc}
      */
@@ -202,7 +201,7 @@ final class HapiClient implements HapiClientInterface
             return $resource;
         }
     }
-    
+
     /**
      * Instantiates the HttpRequest depending on the
      * configuration from the given Request.
@@ -215,19 +214,19 @@ final class HapiClient implements HapiClientInterface
         if ($this->authenticationMethod) {
             $request = $this->authenticationMethod->authorizeRequest($this, $request);
         }
-        
+
         // The URL
         $url = ltrim(trim($request->getUrl()), '/');
-        
+
         // Handle templated URLs
         if ($urlVariables = $request->getUrlVariables()) {
             $url = (new UriTemplate())->expand($url, $urlVariables);
         }
-        
+
         // Headers
         $headers = [];
         $headersToAdd = $request->getHeaders();
-        
+
         // The message body
         $body = null;
         if ($messageBody = $request->getMessageBody()) {
@@ -235,14 +234,14 @@ final class HapiClient implements HapiClientInterface
             $headers['Content-Length'] = $messageBody->getContentLength();
             $body = $messageBody->getContent();
         }
-        
+
         // Accept hal+json response
         if ($this->profile) {
             $headers['Accept'] = 'application/hal+json; profile="' . $this->profile . '"';
         } else {
             $headers['Accept'] = 'application/json';
         }
-        
+
         // Prepare the Guzzle request
         if (Misc::isGuzzle6()) {
             // Guzzle 6
@@ -255,25 +254,25 @@ final class HapiClient implements HapiClientInterface
         } else {
             // Guzzle 5.3
             $httpRequest = $this->client->createRequest($request->getMethod(), $url, ['exceptions' => false]);
-            
+
             // verify option for HTTPS requests if needed
             if (($verify = Misc::verify($url, __DIR__ . '/../CA/')) !== null) {
                 $httpRequest->getConfig()->set('verify', $verify);
             }
-            
+
             foreach ($headers as $key => $value) {
                 $httpRequest->setHeader($key, $value);
             }
-            
+
             foreach ($headersToAdd as $key => $value) {
                 $httpRequest->setHeader($key, $value);
             }
-            
+
             if ($body) {
                 $httpRequest->setBody(\GuzzleHttp\Stream\Stream::factory($body));
             }
         }
-        
+
         return $httpRequest;
     }
 }

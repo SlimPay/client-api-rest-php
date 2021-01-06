@@ -1,12 +1,13 @@
 <?php
-namespace HapiClient\tests;
+namespace HapiClient\Tests;
 
 use HapiClient\Http;
 use HapiClient\Http\Auth;
 use HapiClient\Hal;
 use HapiClient\Exception;
+use PHPUnit\Framework\TestCase;
 
-class ClientTest extends \PHPUnit_Framework_TestCase
+class ClientTest extends TestCase
 {
     const APIURL = 'https://api.preprod.slimpay.com';
     const PROFILEURL = 'https://api.slimpay.net/alps/v1';

@@ -2,8 +2,9 @@
 namespace HapiClient\tests;
 
 use HapiClient\Hal;
+use PHPUnit\Framework\TestCase;
 
-class ResourceTest extends \PHPUnit_Framework_TestCase
+class ResourceTest extends TestCase
 {
     const JSON_REPRESENTATION = <<<END
 {
